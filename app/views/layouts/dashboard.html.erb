@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" %>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag 'custom', media: 'all', 'data-turbo-track': 'reload' %>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <%= javascript_include_tag 'application', 'data-turbo-track': 'reload' %>
+  <%= javascript_importmap_tags %>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body text-center">
+            <div class="profile-img">
+              <%= image_tag 'default_profile.jpg', class: 'img-fluid rounded-circle mb-3' %>
+            </div>
+            <h4 class="card-title"><%= current_user.name %></h4>
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <%= link_to 'Profile', profile_path, class: 'nav-link' %></li>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'My Bookings', my_bookings_path, class: 'nav-link' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="card">
+          <div class="card-body">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+

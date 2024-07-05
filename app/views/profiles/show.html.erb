@@ -1,0 +1,31 @@
+<h4 class="card-title">Profile</h4>
+<p class="card-text">Basic info, for a faster booking experience</p>
+<table class="table table-bordered">
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td><%= @user.name %></td>
+    </tr>
+    <tr>
+      <td>Gender</td>
+      <td><%= @user.gender %></td>
+    </tr>
+    <tr>
+      <td>Marital Status</td>
+      <td><a href="#">+ Add</a></td>
+    </tr>
+    <tr>
+      <td>Your Address</td>
+      <td><%= @user.address %></td>
+    </tr>
+    <tr>
+      <td>Pincode</td>
+      <td><%= @user.pincode %></td>
+    </tr>
+    <tr>
+      <td>State</td>
+      <td><%= @user.state %></td>
+    </tr>
+  </tbody>
+</table>
+<%= link_to 'Edit Profile', edit_profile_path %>

@@ -1,0 +1,46 @@
+<!-- app/views/bookings/edit.html.erb -->
+
+<h2>Edit Booking</h2>
+
+<%= form_for @booking do |f| %>
+  <div class="field">
+    <%= f.label :hotel_name %><br />
+    <%= f.text_field :hotel_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </div>
+
+  <div class="field">
+    <%= f.label :currency %><br />
+    <%= f.text_field :currency %>
+  </div>
+
+  <div class="field">
+    <%= f.label :arrival_date %><br />
+    <%= f.date_field :arrival_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :departure_date %><br />
+    <%= f.date_field :departure_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :guest_name %><br />
+    <%= f.text_field :guest_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :guest_email %><br />
+    <%= f.email_field :guest_email %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update Booking", class: 'btn btn-primary' %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', my_bookings_path, class: 'btn btn-secondary' %>

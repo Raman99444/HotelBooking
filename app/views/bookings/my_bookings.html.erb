@@ -1,0 +1,41 @@
+<h4 class="card-title">My Bookings</h4>
+<p class="card-text">List of your bookings</p>
+<%= link_to 'Create New Booking', new_booking_path, class: 'btn btn-primary mb-3' %>
+
+<% if @bookings.empty? %>
+  <p>No bookings found.</p>
+<% else %>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Booking ID</th>
+        <th>Hotel Name</th>
+        <th>Price</th>
+        <th>Currency</th>
+        <th>Arrival Date</th>
+        <th>Departure Date</th>
+        <th>Guest Name</th>
+        <th>Guest Email</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @bookings.each do |booking| %>
+        <tr>
+          <td><%= booking.id %></td>
+          <td><%= booking.hotel_name %></td>
+          <td><%= booking.price %></td>
+          <td><%= booking.currency %></td>
+          <td><%= booking.arrival_date %></td>
+          <td><%= booking.departure_date %></td>
+          <td><%= booking.guest_name %></td>
+          <td><%= booking.guest_email %></td>
+          <td>
+            <%= link_to 'Edit', edit_booking_path(booking), class: 'btn btn-primary' %>
+            <%= link_to 'Delete', booking, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
