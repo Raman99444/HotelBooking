@@ -3,43 +3,43 @@
 <h2>Edit Booking</h2>
 
 <%= form_for @booking do |f| %>
-  <div class="field">
-    <%= f.label :hotel_name %><br />
-    <%= f.text_field :hotel_name %>
+  <div class="form-group">
+    <%= f.label :hotel_name %>
+    <%= f.text_field :hotel_name, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :price %><br />
-    <%= f.text_field :price %>
+  <div class="form-group">
+    <%= f.label :price %>
+    <%= f.text_field :price, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :currency %><br />
-    <%= f.text_field :currency %>
+  <div class="form-group">
+    <%= f.label :currency %>
+    <%= f.text_field :currency, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :arrival_date %><br />
-    <%= f.date_field :arrival_date %>
+  <div class="form-group">
+    <%= f.label :arrival_date %>
+    <%= f.date_field :arrival_date, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :departure_date %><br />
-    <%= f.date_field :departure_date %>
+  <div class="form-group">
+    <%= f.label :departure_date %>
+    <%= f.date_field :departure_date, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :guest_name %><br />
-    <%= f.text_field :guest_name %>
+  <div class="form-group">
+    <%= f.label :guest_name %>
+    <%= f.text_field :guest_name, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :guest_email %><br />
-    <%= f.email_field :guest_email %>
+  <div class="form-group">
+    <%= f.label :guest_email %>
+    <%= f.email_field :guest_email, class: 'form-control' %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Update Booking", class: 'btn btn-primary' %>
+    <%= f.submit "Update Booking", class: 'btn btn-primary mb-2' %>
   </div>
 <% end %>
 

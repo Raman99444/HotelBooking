@@ -1,6 +1,8 @@
-<h4 class="card-title">My Bookings</h4>
+<h4 class="card-title">Booking History</h4>
 <p class="card-text">List of your bookings</p>
-<%= link_to 'Create New Booking', new_booking_path, class: 'btn btn-primary mb-3' %>
+<div class="d-flex justify-content-end mb-3">
+  <%= button_to 'New Booking', new_booking_path, method: :get, class: 'btn btn-primary btn-lg mb-3' %>
+</div>
 
 <% if @bookings.empty? %>
   <p>No bookings found.</p>
@@ -31,7 +33,7 @@
           <td><%= booking.guest_name %></td>
           <td><%= booking.guest_email %></td>
           <td>
-            <%= link_to 'Edit', edit_booking_path(booking), class: 'btn btn-primary' %>
+            <%= link_to 'Edit', edit_booking_path(booking), class: 'btn btn-primary mb-2' %>
             <%= link_to 'Delete', booking, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
           </td>
         </tr>
