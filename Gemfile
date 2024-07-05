@@ -46,6 +46,7 @@ gem 'bootstrap', '~> 5.1.3'
 gem 'sassc-rails'
 gem 'turbolinks', '~> 5'
 gem 'rails-ujs'
+gem 'minitest', '~> 5.14'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

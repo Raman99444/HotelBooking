@@ -31,7 +31,7 @@ class Booking
   end
 
   def departure_date_cannot_be_before_arrival_date
-    if departure_date.present? && departure_date < arrival_date
+    if departure_date.present? && arrival_date.present? && departure_date < arrival_date
       errors.add(:departure_date, "cannot be earlier than arrival date")
     end
   end

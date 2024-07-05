@@ -284,6 +284,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   jquery-rails
+  minitest (~> 5.14)
   mongoid (~> 7.0)
   puma (>= 5.0)
   rails (~> 7.0.0)

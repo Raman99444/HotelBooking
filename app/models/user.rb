@@ -24,7 +24,9 @@ class User
   field :pincode, type: String
   field :state, type: String
 
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
+
+  validates :name, :gender, :address, :pincode, :state, presence: true
 
   ## Trackable
   # field :sign_in_count,      type: Integer, default: 0
