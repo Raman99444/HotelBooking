@@ -1,10 +1,14 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
-  #before_action :set_devise_mapping
   layout 'dashboard'
 
   def show
     @user = current_user
+    Rails.logger.info "Current User: #{@user.inspect}"
+  rescue => e
+    Rails.logger.error "Error in show action: #{e.message}"
+    Rails.logger.error e.backtrace.join("\n")
+    raise
   end
 
   def edit
@@ -33,8 +37,4 @@ class ProfilesController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :birthday, :gender, :address, :pincode, :state, :email, :password, :password_confirmation, :current_password)
   end
-
-  #def set_devise_mapping
-  #  @request.env["devise.mapping"] = Devise.mappings[:user]
-  #end
 end

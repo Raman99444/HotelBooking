@@ -1,19 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  user: one
   hotel_name: MyString
-  price: 1.5
-  currency: MyString
-  arrival_date: 2024-07-05
-  departure_date: 2024-07-05
-  guest_name: MyString
-  guest_email: MyString
-
-two:
-  hotel_name: MyString
-  price: 1.5
-  currency: MyString
-  arrival_date: 2024-07-05
-  departure_date: 2024-07-05
-  guest_name: MyString
-  guest_email: MyString
+  price: 100.0
+  currency: USD
+  arrival_date: <%= Date.today + 1 %>
+  departure_date: <%= Date.today + 2 %>
+  guest_name: Guest Name
+  guest_email: guest@example.com

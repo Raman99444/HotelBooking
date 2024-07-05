@@ -26,8 +26,6 @@ class User
 
   has_many :bookings, dependent: :destroy
 
-  validates :name, :gender, :address, :pincode, :state, presence: true
-
   ## Trackable
   # field :sign_in_count,      type: Integer, default: 0
   # field :current_sign_in_at, type: Time

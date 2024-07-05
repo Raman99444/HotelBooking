@@ -32,7 +32,6 @@ class BookingsController < ApplicationController
     end
   
     def destroy
-        puts "Inside the destroy"
         puts @booking
       @booking.destroy
       redirect_to my_bookings_path, notice: 'Booking deleted successfully'

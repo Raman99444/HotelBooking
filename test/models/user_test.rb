@@ -28,9 +28,9 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
-  test "should be invalid without a name" do
+  test "should be allow to create without a name" do
     @user.name = nil
-    assert_not @user.valid?
+    assert @user.valid?
   end
 
   test "should be valid even if without a birthday" do
@@ -38,24 +38,24 @@ class UserTest < ActiveSupport::TestCase
     assert @user.valid?
   end
 
-  test "should be invalid without a gender" do
+  test "should be valid even if without a gender" do
     @user.gender = nil
-    assert_not @user.valid?
+    assert @user.valid?
   end
 
-  test "should be invalid without an address" do
+  test "should be valid even if without an address" do
     @user.address = nil
-    assert_not @user.valid?
+    assert @user.valid?
   end
 
-  test "should be invalid without a pincode" do
+  test "should be valid even if without a pincode" do
     @user.pincode = nil
-    assert_not @user.valid?
+    assert @user.valid?
   end
 
-  test "should be invalid without a state" do
+  test "should be valid eben if without a state" do
     @user.state = nil
-    assert_not @user.valid?
+    assert @user.valid?
   end
 
   test "should destroy associated bookings" do

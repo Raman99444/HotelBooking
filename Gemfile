@@ -47,6 +47,14 @@ gem 'sassc-rails'
 gem 'turbolinks', '~> 5'
 gem 'rails-ujs'
 gem 'minitest', '~> 5.14'
+gem 'pry'
+
+group :test do
+  gem 'minitest-reporters'
+  gem 'rails-controller-testing'
+  gem 'factory_bot_rails'
+  gem 'database_cleaner-mongoid'
+end
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
