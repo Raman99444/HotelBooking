@@ -4,11 +4,15 @@ class User
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,
+         :jwt_authenticatable, jwt_revocation_strategy: Devise::JWT::RevocationStrategies::Null
 
   ## Database authenticatable
   field :email,              type: String, default: ""
   field :encrypted_password, type: String, default: ""
+  field :jti, type: String, default: -> { SecureRandom.uuid }
+
+  index({ jti: 1 }, { unique: true, background: true })
 
   ## Recoverable
   field :reset_password_token,   type: String
@@ -25,6 +29,11 @@ class User
   field :state, type: String
 
   has_many :bookings, dependent: :destroy
+
+  def jwt_payload
+    puts "Generating JWT payload for user #{id}"
+    { 'jti' => jti }
+  end
 
   ## Trackable
   # field :sign_in_count,      type: Integer, default: 0

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
 
   devise_scope :user do
     authenticated :user do
@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     unauthenticated do
       root to: 'devise/sessions#new', as: :unauthenticated_root
     end
+
+    # temp signout route
+    get 'users/sign_out', to: 'devise/sessions#destroy'
   end
 
   resources :bookings

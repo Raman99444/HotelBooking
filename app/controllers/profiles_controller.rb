@@ -4,11 +4,10 @@ class ProfilesController < ApplicationController
 
   def show
     @user = current_user
-    Rails.logger.info "Current User: #{@user.inspect}"
-  rescue => e
-    Rails.logger.error "Error in show action: #{e.message}"
-    Rails.logger.error e.backtrace.join("\n")
-    raise
+    respond_to do |format|
+      format.html
+      format.json { render json: @user }
+    end
   end
 
   def edit
