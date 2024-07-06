@@ -48,13 +48,7 @@ gem 'turbolinks', '~> 5'
 gem 'rails-ujs'
 gem 'minitest', '~> 5.14'
 gem 'pry'
-
-group :test do
-  gem 'minitest-reporters'
-  gem 'rails-controller-testing'
-  gem 'factory_bot_rails'
-  gem 'database_cleaner-mongoid'
-end
+gem 'sass-rails', '>= 6'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -76,4 +70,9 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  gem 'minitest-reporters'
+  gem 'rails-controller-testing'
+  gem 'factory_bot_rails'
+  gem 'database_cleaner-mongoid'
+  gem 'webdrivers'
 end

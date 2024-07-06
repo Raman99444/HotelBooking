@@ -36,7 +36,8 @@
     <%= f.email_field :guest_email, class: 'form-control', id: 'booking_guest_email' %>
   </div>
 
-  <%= f.submit 'Create Booking', class: 'btn btn-primary mb-2' %>
+  <div class="d-flex justify-content-end p-3">
+    <%= f.submit 'Book', class: 'btn-primary' %>
+    <%= link_to 'Back', my_bookings_path, class: 'btn-secondary btn-lg ml-3' %>
+  </div>
 <% end %>
-
-<%= link_to 'Back', my_bookings_path, class: 'btn btn-secondary' %>

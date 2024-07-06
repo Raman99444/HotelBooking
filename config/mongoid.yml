@@ -178,7 +178,7 @@ development:
 test:
   clients:
     default:
-      uri: mongodb+srv://ramachandran:8DMsVIC2aNLgSM8f@cluster0.5cec0ps.mongodb.net/hotel_booking_app_development?retryWrites=true&w=majority
+      uri: mongodb+srv://ramachandran:8DMsVIC2aNLgSM8f@cluster0.5cec0ps.mongodb.net/hotel_booking_app_test?retryWrites=true&w=majority
       #database: hotel_booking_test
       #hosts:
       #  - localhost:27017

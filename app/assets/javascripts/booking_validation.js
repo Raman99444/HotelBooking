@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("turbolinks:load", function() {
   const bookingForm = document.querySelector('#booking-form');
 
   if (bookingForm) {
