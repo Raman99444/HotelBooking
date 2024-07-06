@@ -9,7 +9,7 @@ development:
       # Otherwise define the parameters separately.
       # This defines the name of the default database that Mongoid can connect to.
       # (required).
-      uri: mongodb+srv://ramachandran:8DMsVIC2aNLgSM8f@cluster0.5cec0ps.mongodb.net/hotel_booking_app_development?retryWrites=true&w=majority
+      uri: <%= ENV['MONGODB_URI'] %>
       #database: hotel_booking_development
       # Provides the hosts the default client can connect to. Must be an array
       # of host:port pairs. (required)
@@ -178,7 +178,19 @@ development:
 test:
   clients:
     default:
-      uri: mongodb+srv://ramachandran:8DMsVIC2aNLgSM8f@cluster0.5cec0ps.mongodb.net/hotel_booking_app_test?retryWrites=true&w=majority
+      uri: <%= ENV['MONGODB_URI'] %>
+      #database: hotel_booking_test
+      #hosts:
+      #  - localhost:27017
+      options:
+        log_level: :warn
+        #read:
+        #  mode: :primary
+        #max_pool_size: 1
+production:
+  clients:
+    default:
+      uri: <%= ENV['MONGODB_URI'] %>
       #database: hotel_booking_test
       #hosts:
       #  - localhost:27017

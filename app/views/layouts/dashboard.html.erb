@@ -44,11 +44,11 @@
   </div>
   <%= stylesheet_link_tag "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" %>
   <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css' %>
-  <%= javascript_include_tag 'application', 'data-turbo-track': 'reload' %>
-  <%= javascript_include_tag 'booking_validation', 'data-turbo-track': 'reload' %>
-  <%= javascript_include_tag "https://code.jquery.com/jquery-3.3.1.slim.min.js", integrity: "sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvvz22ifgYQGiRRSQQ", crossorigin: "anonymous" %>
-  <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js", integrity: "sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa6b13zStfA1tK3o9fnjzv+4T", crossorigin: "anonymous" %>
-  <%= javascript_include_tag "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js", integrity: "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy+KpGo6sP6pC6/1pVAYFZr+AxTtWbLJJgbq2GD", crossorigin: "anonymous" %>
+  <%= javascript_include_tag 'application', 'data-turbo-track': 'reload', type: 'module' %>
+  <%= javascript_include_tag 'booking_validation', 'data-turbo-track': 'reload', type: 'module' %>
+  <%= javascript_include_tag "https://code.jquery.com/jquery-3.3.1.slim.min.js" %>
+  <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" %>
+  <%= javascript_include_tag "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" %>
   <%= javascript_importmap_tags %>
 </body>
 </html>

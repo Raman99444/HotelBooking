@@ -1,7 +1,9 @@
 document.addEventListener("turbolinks:load", function() {
+  console.log("Turbolinks loaded");
   const bookingForm = document.querySelector('#booking-form');
 
   if (bookingForm) {
+    console.log("Booking form found"); 
     const arrivalDateInput = document.querySelector('#booking_arrival_date');
     const departureDateInput = document.querySelector('#booking_departure_date');
     const guestNameInput = document.querySelector('#booking_guest_name');
@@ -181,5 +183,7 @@ document.addEventListener("turbolinks:load", function() {
       guestEmailInput.classList.remove('is-invalid');
       currencyInput.classList.remove('is-invalid');
     }
+  }  else {
+    console.log("Booking form not found"); // Debugging statement
   }
 });
