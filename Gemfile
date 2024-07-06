@@ -49,6 +49,8 @@ gem 'rails-ujs'
 gem 'minitest', '~> 5.14'
 gem 'pry'
 gem 'sass-rails', '>= 6'
+gem 'devise-jwt'
+gem 'jsonapi-serializer'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

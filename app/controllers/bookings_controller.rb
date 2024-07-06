@@ -5,36 +5,58 @@ class BookingsController < ApplicationController
   
     def my_bookings
       @bookings = current_user.bookings || []
+      respond_to do |format|
+        format.html
+        format.json { render json: @bookings }
+      end
     end
   
     def new
       @booking = Booking.new
+      respond_to do |format|
+        format.html
+        format.json { render json: @booking }
+      end
     end
   
     def create
       @booking = current_user.bookings.new(booking_params)
-      if @booking.save
-        redirect_to my_bookings_path, notice: 'Booking created successfully'
-      else
-        render :new
+      respond_to do |format|
+        if @booking.save
+          format.html { redirect_to my_bookings_path, notice: 'Booking created successfully' }
+          format.json { render json: @booking, status: :created }
+        else
+          format.html { render :new }
+          format.json { render json: @booking.errors, status: :unprocessable_entity }
+        end
       end
     end
   
     def edit
+        respond_to do |format|
+            format.html
+            format.json { render json: @booking }
+        end
     end
   
     def update
-      if @booking.update(booking_params)
-        redirect_to my_bookings_path, notice: 'Booking updated successfully'
-      else
-        render :edit
+        respond_to do |format|
+          if @booking.update(booking_params)
+            format.html { redirect_to my_bookings_path, notice: 'Booking updated successfully' }
+            format.json { render json: @booking, status: :ok }
+          else
+            format.html { render :edit }
+            format.json { render json: @booking.errors, status: :unprocessable_entity }
+          end
+        end
       end
-    end
   
     def destroy
-        puts @booking
       @booking.destroy
-      redirect_to my_bookings_path, notice: 'Booking deleted successfully'
+      respond_to do |format|
+        format.html { redirect_to my_bookings_path, notice: 'Booking deleted successfully' }
+        format.json { head :no_content }
+      end
     end
   
     private
