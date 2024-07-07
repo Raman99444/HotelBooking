@@ -38,4 +38,17 @@ Things you may want to cover:
         jwt_secret_key: <your_secret_key>
 
     Configured MongoDB as described in the `Database Creation` section.
+
+    I have deployed the changes to Heroku. You can walk through the application using the following URL: `https://hotelbookingcendyn-4394e0b652ed.herokuapp.com` instead of setting it up locally.
+
+    **API Test:**
+
+    To test the APIs using Postman or any other service, follow the procedure below.
+
+    Before starting to test the APIs, set the `Accept` header to `application/json`.
+
+    *User Signup:*
+    
+
+
 * ...
