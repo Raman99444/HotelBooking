@@ -12,8 +12,9 @@ class BookingTest < ActiveSupport::TestCase
       pincode: "123456",
       state: "Test State"
     )
+    @hotel = Hotel.create(name: "Test Hotel")
     @booking = @user.bookings.new(
-      hotel_name: "Test Hotel",
+      hotel: @hotel,
       price: 100.0,
       currency: "USD",
       arrival_date: Date.today + 1,
@@ -28,7 +29,7 @@ class BookingTest < ActiveSupport::TestCase
   end
 
   test "should be invalid without a hotel_name" do
-    @booking.hotel_name = ""
+    @booking.hotel = nil
     assert_not @booking.valid?
   end
 

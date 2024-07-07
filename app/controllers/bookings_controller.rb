@@ -24,7 +24,7 @@ class BookingsController < ApplicationController
       respond_to do |format|
         if @booking.save
           format.html { redirect_to my_bookings_path, notice: 'Booking created successfully' }
-          format.json { render json: @booking, status: :created }
+          format.json { render json: @booking.as_json(include: :hotel), status: :created }
         else
           format.html { render :new }
           format.json { render json: @booking.errors, status: :unprocessable_entity }
@@ -66,7 +66,7 @@ class BookingsController < ApplicationController
     end
   
     def booking_params
-      params.require(:booking).permit(:hotel_name, :price, :currency, :arrival_date, :departure_date, :guest_name, :guest_email)
+      params.require(:booking).permit(:hotel_id, :price, :currency, :arrival_date, :departure_date, :guest_name, :guest_email)
     end
   end
   

@@ -25,7 +25,7 @@
       <% @bookings.each do |booking| %>
         <tr>
           <td><%= booking.id.to_s[0, 7] %></td>
-          <td><%= booking.hotel_name %></td>
+          <td><%= booking.hotel.name %></td>
           <td><%= booking.price %></td>
           <td><%= booking.currency %></td>
           <td><%= booking.arrival_date %></td>

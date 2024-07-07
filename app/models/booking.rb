@@ -1,7 +1,7 @@
 class Booking
   include Mongoid::Document
   include Mongoid::Timestamps
-  field :hotel_name, type: String
+  #field :hotel_name, type: String
   field :price, type: Float
   field :currency, type: String
   field :arrival_date, type: Date
@@ -10,8 +10,9 @@ class Booking
   field :guest_email, type: String
 
   belongs_to :user
+  belongs_to :hotel
 
-  validates :hotel_name, presence: true
+  #validates :hotel_name, presence: true
   validates :price, presence: true, numericality: { greater_than: 0 }
   validates :currency, presence: true
   validates :arrival_date, presence: true

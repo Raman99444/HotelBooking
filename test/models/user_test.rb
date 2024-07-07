@@ -60,8 +60,9 @@ class UserTest < ActiveSupport::TestCase
 
   test "should destroy associated bookings" do
     @user.save
+    hotel = Hotel.create!(name: "Test Hotel")
     @user.bookings.create!(
-      hotel_name: "Test Hotel",
+      hotel_id: hotel.id,
       price: 100.0,
       currency: "USD",
       arrival_date: Date.today + 1,
