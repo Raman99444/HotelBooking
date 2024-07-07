@@ -3,7 +3,7 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
   def setup
     @user = User.new(
-      email: "unique_test@example.com",
+      email: "unique_test#{SecureRandom.hex(4)}@example.com",
       password: "password",
       name: "John Doe",
       birthday: Date.new(1990, 1, 1),
@@ -67,10 +67,31 @@ class UserTest < ActiveSupport::TestCase
       arrival_date: Date.today + 1,
       departure_date: Date.today + 2,
       guest_name: "Guest Name",
-      guest_email: "guest@example.com"
+      guest_email: "guest#{SecureRandom.hex(4)}@example.com"
     )
     assert_difference 'Booking.count', -1 do
       @user.destroy
     end
+  end
+
+  test "should generate jti on create" do
+    @user.save
+    assert_not_nil @user.jti
+  end
+
+  test "should generate unique jti" do
+    @user.save
+    another_user = User.create!(
+      email: "another_test#{SecureRandom.hex(4)}@example.com",
+      password: "password",
+      name: "Jane Doe"
+    )
+    assert_not_equal @user.jti, another_user.jti
+  end
+
+  test "jwt_payload should include jti" do
+    @user.save
+    payload = @user.jwt_payload
+    assert_equal @user.jti, payload['jti']
   end
 end

@@ -17,6 +17,13 @@ class ProfilesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get show with JSON format" do
+    get profile_path, as: :json
+    assert_response :success
+    json_response = JSON.parse(response.body)
+    assert_equal @user.email, json_response["email"]
+  end
+
   test "should get edit" do
     get edit_profile_path
     assert_response :success
@@ -64,5 +71,32 @@ class ProfilesControllerTest < ActionDispatch::IntegrationTest
     @user.reload
     assert_equal "Updated Name", @user.name
     assert_equal "updated@example.com", @user.email
+  end
+
+  test "should update profile with JSON format" do
+    patch profile_path, params: {
+      user: {
+        name: "Updated Name",
+        email: "updated@example.com",
+        current_password: "password"
+      }
+    }, as: :json
+    assert_response :success
+    json_response = JSON.parse(response.body)
+    assert_equal "Updated Name", json_response["name"]
+    assert_equal "updated@example.com", json_response["email"]
+  end
+
+  test "should not update profile with invalid current password in JSON format" do
+    patch profile_path, params: {
+      user: {
+        name: "Updated Name",
+        email: "updated@example.com",
+        current_password: "wrongpassword"
+      }
+    }, as: :json
+    assert_response :unprocessable_entity
+    json_response = JSON.parse(response.body)
+    assert_includes json_response["errors"].map(&:downcase).to_s, "current password is invalid"
   end
 end

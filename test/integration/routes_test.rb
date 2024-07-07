@@ -2,13 +2,17 @@ require 'test_helper'
 
 class RoutesTest < ActionDispatch::IntegrationTest
   setup do
-    @user = create(:user)
+    @user = User.create!(
+      email: "user_#{SecureRandom.hex(4)}@example.com",
+      password: "password",
+      password_confirmation: "password"
+    )
     sign_in @user
   end
 
   test "devise routes" do
-    assert_routing({ method: 'post', path: '/users/sign_in' }, { controller: 'devise/sessions', action: 'create' })
-    assert_routing({ method: 'delete', path: '/users/sign_out' }, { controller: 'devise/sessions', action: 'destroy' })
+    assert_routing({ method: 'post', path: '/users/sign_in' }, { controller: 'users/sessions', action: 'create' })
+    assert_routing({ method: 'delete', path: '/users/sign_out' }, { controller: 'users/sessions', action: 'destroy' })
   end
 
   test "authenticated root route" do

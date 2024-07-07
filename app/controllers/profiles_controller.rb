@@ -23,11 +23,15 @@ class ProfilesController < ApplicationController
       processed_params.delete(:password_confirmation)
     end
 
-    if @user.update_with_password(processed_params)
-      bypass_sign_in(@user)
-      redirect_to profile_path, notice: 'Profile updated successfully'
-    else
-      render :edit
+    respond_to do |format|
+      if @user.update_with_password(processed_params)
+        bypass_sign_in(@user)
+        format.html { redirect_to profile_path, notice: 'Profile updated successfully' }
+        format.json { render json: @user, status: :ok }
+      else
+        format.html { render :edit }
+        format.json { render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity }
+      end
     end
   end
 
